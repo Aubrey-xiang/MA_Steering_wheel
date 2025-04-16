@@ -77,12 +77,14 @@ private:
   std::vector<double> get_Armors_yaw(const Eigen::Vector3d &target_center,
                                     const double target_yaw, 
                                     const double target_v_yaw, 
-                                    const double switch_advanced_time);
+                                    const double switch_advanced_time,
+                                    const size_t armors_num);
 
   int getBestArmorIndex(double target_v_yaw, 
                         double switch_threshold, 
                         const Eigen::Vector3d &target_center, 
-                        const double target_yaw);
+                        const double target_yaw,
+                        const size_t armors_num);
 
   double constrain_angle(double angle);
 
@@ -118,7 +120,7 @@ private:
   std::weak_ptr<rclcpp::Node> node_;
 
   int index;
-  int number = 4;
+  
   double switch_threshold = 15;
 };
 }  // namespace fyt::auto_aim
